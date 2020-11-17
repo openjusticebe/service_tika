@@ -38,8 +38,9 @@ RUN apt-get clean -y && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 ARG TIKA_VERSION
 ENV TIKA_VERSION=$TIKA_VERSION
 COPY --from=fetch_tika /tika-server-${TIKA_VERSION}.jar /tika-server-${TIKA_VERSION}.jar
+COPY config.xml /
 
 EXPOSE 9998
-ENTRYPOINT java -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
+ENTRYPOINT java -jar /tika-server-${TIKA_VERSION}.jar --config=tika-config.xml -h 0.0.0.0
 
 LABEL maintainer="OpenJustice.be - Pieterjan Montens"
