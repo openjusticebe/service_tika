@@ -41,6 +41,6 @@ COPY --from=fetch_tika /tika-server-${TIKA_VERSION}.jar /tika-server-${TIKA_VERS
 COPY config.xml /
 
 EXPOSE 9998
-ENTRYPOINT java -jar /tika-server-${TIKA_VERSION}.jar --config=tika-config.xml -h 0.0.0.0
+ENTRYPOINT java -jar /tika-server-${TIKA_VERSION}.jar --config=config.xml -h 0.0.0.0
 
 LABEL maintainer="OpenJustice.be - Pieterjan Montens"
