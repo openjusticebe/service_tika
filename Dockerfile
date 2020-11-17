@@ -7,7 +7,7 @@ FROM base as dependencies
 ARG JRE='openjdk-14-jre-headless'
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install $JRE gdal-bin tesseract-ocr \
-        tesseract-ocr-eng tesseract-ocr-ita tesseract-ocr-fra tesseract-ocr-spa tesseract-ocr-deu tesseract-ocr-nld
+        tesseract-ocr-eng tesseract-ocr-fra tesseract-ocr-deu tesseract-ocr-nld
 
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y xfonts-utils fonts-freefont-ttf fonts-liberation ttf-mscorefonts-installer wget cabextract
@@ -42,4 +42,4 @@ COPY --from=fetch_tika /tika-server-${TIKA_VERSION}.jar /tika-server-${TIKA_VERS
 EXPOSE 9998
 ENTRYPOINT java -jar /tika-server-${TIKA_VERSION}.jar -h 0.0.0.0
 
-LABEL maintainer="Apache Tika Developers dev@tika.apache.org"
+LABEL maintainer="OpenJustice.be - Pieterjan Montens"
