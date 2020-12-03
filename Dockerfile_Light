@@ -25,6 +25,7 @@ RUN MIRROR_TIKA_SERVER_URL=$(curl -sSL http://www.apache.org/dyn/closer.cgi/${TI
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY start-server /usr/local/bin/tika-server
+RUN chmod +x /usr/local/bin/tika-server
 
 EXPOSE 9998
 ENTRYPOINT tika-server
