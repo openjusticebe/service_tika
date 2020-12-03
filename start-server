@@ -1,0 +1,2 @@
+#!/bin/bash
+java ${TIKA_JVM_OPTS} -jar /tika-server.jar ${TIKA_CHILD_JVM_OPTS} ${TIKA_OPTS} -h 0.0.0.0
