@@ -1,12 +1,12 @@
 # Original image has tessaract i10n for english, italian, french, spanish and german
 # We just add dutch at the moment
 FROM ubuntu:focal as base
+RUN apt-get update
 
 
 FROM base as dependencies
 ARG JRE='openjdk-14-jre-headless'
 
-RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y install $JRE gdal-bin tesseract-ocr \
         tesseract-ocr-eng tesseract-ocr-fra tesseract-ocr-deu tesseract-ocr-nld
 
