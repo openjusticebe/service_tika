@@ -8,3 +8,13 @@ Apache Tika est un toolkit développé par la fondation Apache qui permet de dé
 Ce repo contient les dockerfiles nécessaires à la mise en place d'un service Tika, inspiré de [la distribution officielle d'Apache](https://github.com/apache/tika-docker).
 
 Les éléments de ce repo sont directement inspirés et repris du docker officiel d'[Apache Tika](https://github.com/apache/tika-docker)
+
+# Instances locales
+Pour instancier localement une image Tika d'Openjustice :
+
+```
+# Avec OCR
+$  docker run --rm -it -p 9998:9998 --name tika openjustice/tika:1.25-ocr
+# Sans OCR
+$  docker run --rm -it -p 9998:9998 --name tika openjustice/tika:1.25
+```
